@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Introduction to AngularJS</title>
+
+  <meta name="description" content="Introduction to AngularJS MV* Framework">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/beige.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/tomorrow-night-blue.css">
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+      <img src="img/angular-logo.png" class="presentation-logo"/>
+
+      <h1>Angular.js</h1>
+
+      <h3>Introduction to *V* architecture</h3>
+
+      <p>
+        <small>Created by Błażej Krysiak / Senior Frontend Developer</small>
+      </p>
+
+    </section>
+
+    <section>
+      <section>
+
+        <img src="img/icons/hourglass.png"/>
+
+        <h2>Little bit of history</h2>
+
+        <p>
+          Stack of our web-based apps and websites has changed during last few years.
+        </p>
+      </section>
+
+      <section>
+
+        <img src="img/icons/batterylow.png"/>
+
+        <h2>2010</h2>
+
+        <p>
+          <span class="txt-blue">Stack:</span>
+          jQuery
+        </p>
+
+        <p>
+          <span class="txt-blue">Size:</span>
+          ~400kb
+        </p>
+
+        <p>
+          <span class="txt-blue">LOC in JS:</span>
+          ~2000kb
+        </p>
+      </section>
+      <section>
+
+        <img src="img/icons/batteryfull.png"/>
+
+        <h2>2015</h2>
+
+        <p>
+          <span class="txt-blue">Stack:</span>
+          jQuery, Angular, Lodash, Bootstrap, Bower, Grunt, Yeoman, NPM, Summernote, xEditable, Selenium, Protractor,
+          Moment, Font-Awsome, RequireJS... (150+)
+        </p>
+
+        <p>
+          <span class="txt-blue">Size:</span>
+          ~650Mb
+        </p>
+
+        <p>
+          <span class="txt-blue">LOC in JS:</span>
+          ~20000kb
+        </p>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <img src="img/icons/bookshelf.png"/>
+
+        <h2>We needed to structure our apps</h2>
+        <ul>
+          <li>Create organized file structure</li>
+          <li>Manage dependencies and libraries</li>
+          <li>Provide architecture organization</li>
+          <li>Allow usage of objective patterns</li>
+        </ul>
+      </section>
+
+      <section>
+        <img src="img/icons/brightness.png"/>
+
+        <h2>Angular wasn't the first to solve this problem</h2>
+
+        <p>
+          Predecessors:
+        <ul>
+          <li>BackboneJS/Ember (MVC)
+          </li>
+          <li>ExtJS (MVVM)</li>
+          <li>Marionette/Chaplin (5-tier)</li>
+          <li>Flux (6-tier)</li>
+        </ul>
+        </p>
+      </section>
+
+      <section>
+        <img src="img/icons/speedometer.png"/>
+
+        <h2>But came with simplest approach</h2>
+
+        <p>AngularJS (as for 1.3 <span class="txt-red">*</span>V<span class="txt-red">*</span>)</p>
+
+
+        <ul>
+          <li>You care how you provide your data</li>
+          <li>You bind the data to view the way you like</li>
+          <li>You add structure to the app the way you need</li>
+          <li>We make your development fastest and easies possible</li>
+        </ul>
+
+        <p>
+          <small class="txt-red">* Whatever</small>
+        </p>
+
+      </section>
+
+      <section>
+        <img src="img/icons/unicycle.png"/>
+
+        <h2>That became very popular</h2>
+
+        <ul>
+          <li>Easiest learn-to-go curve</li>
+          <li>Extended HTML syntax</li>
+          <li>Reduced the amount of code in JS</li>
+          <li>Declarative in-template logic implementation</li>
+          <li>Faster development-production cycle</li>
+        </ul>
+
+      </section>
+    </section>
+
+    <section>
+      <img src="img/icons/briefcase.png"/>
+
+      <h2>Angular architecture elements</h2>
+
+      <ol style="columns: 1; -webkit-columns: 1; -moz-columns: 2;">
+        <li>Module<span class="txt-red">*</span>/Controller<span class="txt-red">*</span>/Directive<span class="txt-red">*</span>/Filter</li>
+        <li>Template<span class="txt-red">*</span></li>
+        <li>Value/Constant/Factory<span class="txt-red">*</span>/Service<span class="txt-red">*</span>/Provider<span class="txt-red">*</span></li>
+        <li>Decorator/Interceptor/Transformer</li>
+        <li>Router<span class="txt-red">*</span></li>
+        <li>Dependency Injection<span class="txt-red">*</span></li>
+      </ol>
+
+    </section>
+    <section>
+        <section>
+          <img src="img/icons/workspace.png"/>
+
+          <h2>Templates</h2>
+
+          <p>HTML code augmented with <span class="txt-blue">directives</span>, <span class="txt-blue">expressions</span> and <span class="txt-blue">filters</span>.</p>
+        </section>
+    </section>
+
+    <section>
+       <section>
+        <img src="img/icons/luggage.png"/>
+
+        <h2>Module</h2>
+
+        <p>Container for the different parts of app.</p>
+
+      </section>
+      <section>
+        <h2>Sample module with dependency injection</h2>
+        <pre><code class="hljs" data-trim>
+angular
+  .module('app.module', ['app.module.submodule_1','app.module.submodule_2'])
+
+  .config(function ($stateProvider) {
+    $stateProvider.state('app.module', {
+      abstract: true,
+      data: {
+        permissions: {
+          only: ['user'],
+          redirectTo: 'auth.login'
+        }
+      }
+    });
+  });
+
+  .run(function(greeter, user) {
+    greeter.localize('Hello', user);
+  });
+        </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <img src="img/icons/settings.png"/>
+
+        <h2>Controller</h2>
+
+        <p>Controller is a JavaScript constructor that is used to augment the <span class="txt-blue">Angular Scope</span>.</p>
+        <p>
+          Usage:
+          <ul>
+            <li>Set up the initial state of the $scope object.</li>
+            <li>Add behavior to the $scope object.</li>
+          </ul>
+        </p>
+
+      </section>
+
+      <section>
+        <h2>Sample controller</h2>
+          <pre><code class="hljs" data-trim>
+module.controller('GenderController', ['$scope', function($scope) {
+  $scope.gender = undefined;
+
+  $scope.clickMale = function() {
+    $scope.gender = 'male';
+  };
+
+  $scope.clickFemale = function() {
+    $scope.gender = 'female';
+  };
+
+  $scope.clickGender = function() {
+    $scope.gender = 'gender';
+  };
+}]);
+          </code></pre>
+      </section>
+      <section>
+        <img src="img/icons/flame.png"/>
+
+        <h2>Directives</h2>
+
+        <p>The heart and the power of Angular.</p>
+        <p>Marker on a DOM element that attach a specified behavior to that DOM element or even transform the DOM element and its children</p>
+
+      </section>
+
+
+      <section>
+        <h2>Sample directive</h2>
+          <pre><code class="hljs" data-trim>
+app.directive('sampleDirective', function () {
+  return {
+    restrict: 'EA', //E = element, A = attribute, C = class, M = comment
+    scope: {
+      //@ reads the attribute value, = provides two-way binding, & works with functions
+      title: '@'
+    },
+    template: '<div>{{ myVal }}</div>',
+    templateUrl: 'mytemplate.html',
+    controller: controllerFunction, //Embed a custom controller in the directive
+    compile: function (element, attrs) { } // DOM manipulation
+    link: function (scope, element, attrs) { } //DOM manipulation
+  }
+});
+          </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <img src="img/icons/scissors.png"/>
+
+        <h2>Filters</h2>
+
+        <p>Selects a subset of items from array and returns it as a new array.</p>
+        <p>Can be used in JS and HTML code.</p>
+          <pre><code class="hljs html">{{ filter_expression | filter : expression : comparator}}</code></pre>
+        <pre><code class="hljs javascript">$filter('filter')(array, expression, comparator)</code></pre>
+      </section>
+
+      <section>
+        <h2>Sample filter</h2>
+          <pre><code class="hljs html" data-trim>
+<xmp>
+<input ng-model="searchText">
+<tr ng-repeat="friend in friends | filter:searchText">
+  <td>{{friend.name}}</td>
+  <td>{{friend.phone}}</td>
+</tr>
+</xmp>
+          </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <img src="img/icons/tower.png"/>
+
+        <h2>Services</h2>
+        <h2><small class="txt-blue">Value/Constant/Factory/Service/Provider</small></h2>
+
+        <p>Objects whose API is defined by the developer writing the service.</p>
+
+      </section>
+      <section>
+        <h2>Sample factory</h2>
+          <pre><code class="hljs" data-trim>
+app.factory('BaseAPI', function () {
+  function API(model) {
+    if (_.isUndefined(model)) {
+      throw 'Argument "model" must be defined';
+    }
+
+    this.model = model;
+  }
+
+  API.prototype.fetch = function () {
+    return Project
+      .$collection()
+      .$fetch()
+      .$asPromise()
+      .catch(handleError);
+  });
+
+  function handleError(){ /***/}
+
+  return API;
+});
+          </code></pre>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Sample service</h2>
+          <pre><code class="hljs" data-trim>
+app.service('UserAPI', function (BaseAPI, User, $log, $rootScope) {
+  var api = new BaseAPI(User);
+
+  api.login = function login(loginData) {
+  return User
+    .$build(loginData)
+    .$login()
+    .$asPromise()
+    .then(function (user) {
+    // Make user, customers accessible globally
+    $rootScope.user = user;
+    return user;
+  })
+  .catch(function (response) {
+    $log.error('Could not login the user', response);
+  });
+
+  return api;
+});
+          </code></pre>
+      </section>
+
+      <section>
+        <h2>Sample value</h2>
+          <pre><code class="hljs" data-trim>
+app.value('clientId', 'a12345654321x');
+          </code></pre>
+      </section>
+
+    <section>
+        <h2>Sample constant</h2>
+          <pre><code class="hljs" data-trim>
+app.constant('apiToken', 'a12345654321xa12345654321xa12345654321x');
+          </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <img src="img/icons/briefcase.png"/>
+
+      <h2>Angular architecture elements</h2>
+
+      <ol style="columns: 1; -webkit-columns: 1; -moz-columns: 2;">
+        <li>Module<span class="txt-red">*</span>/Controller<span class="txt-red">*</span>/Directive<span class="txt-red">*</span>/Filter</li>
+        <li>Template<span class="txt-red">*</span></li>
+        <li>Value/Constant/Factory<span class="txt-red">*</span>/Service<span class="txt-red">*</span>/Provider<span class="txt-red">*</span></li>
+        <li>Decorator/Interceptor/Transformer</li>
+        <li>Router<span class="txt-red">*</span></li>
+        <li>Dependency Injection<span class="txt-red">*</span></li>
+      </ol>
+      <p><small class="txt-red">* Will be removed or changed in Angular 2.0</small></p>
+
+    </section>
+
+    <section>
+      <img src="img/icons/genius.png"/>
+
+      <h2>Angular for and against</h2>
+      <ul>
+        <li>Easy to start, but requires programming knowledge to deeply understand</li>
+        <li>Requires pure JavaScript background to maintain larger app</li>
+        <li>Can be awfully slow</li>
+        <li>Has few architectural mistakes</li>
+        <li>Without selection of libraries doesn't shine</li>
+        <li>Framework will drastically change in 2.0</li>
+        <li>Very first component oriented architecture</li>
+        <li>2x times faster development in comparison to other MV-like solutions</li>
+      </ul>
+    </section>
+
+    <section>
+      <img src="img/icons/buzzer.png"/>
+      <h1>Dziękuję za uwagę</h1>
+    </section>
+
+  </div>
+
+  <img src="img/neoteric-logo.png" class="company-logo"/>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      {
+        src: 'lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: 'plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/highlight/highlight.js', async: true, condition: function () {
+        return !!document.querySelector('pre code');
+      }, callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+      },
+      {src: 'plugin/zoom-js/zoom.js', async: true},
+      {src: 'plugin/notes/notes.js', async: true}
+    ]
+  });
+
+</script>
+</body>
+</html>
